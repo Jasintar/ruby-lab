@@ -4,9 +4,6 @@
   <tr>
     <th>Prefix</th>
     <th>Title</th>
-    <th>Body</th>
-    <th>Input</th>
-    <th>Output</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,9 +13,6 @@
   <tr>
     <td><%= problem.prefix %></td>
     <td><%= problem.title %></td>
-    <td><%= problem.body %></td>
-    <td><%= problem.input %></td>
-    <td><%= problem.output %></td>
     <td><%= link_to 'Show', problem %></td>
     <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
     <td><%= link_to 'Destroy', problem, method: :delete, data: { confirm: 'Are you sure?' } %></td>

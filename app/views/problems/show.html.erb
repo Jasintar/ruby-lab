@@ -1,28 +1,22 @@
 <p id="notice"><%= notice %></p>
 
+<span id="problem_header">
+  <%= @problem.prefix %>. <%= @problem.title %>
+</span>
+
 <p>
-  <b>Prefix:</b>
-  <%= @problem.prefix %>
+  <span id="problem_standing">Условие:</span>
+  <div><%= @problem.body %></div>
 </p>
 
 <p>
-  <b>Title:</b>
-  <%= @problem.title %>
+  <span id="problem_input">Input:</span>
+  <div><%= @problem.input %></div>
 </p>
 
 <p>
-  <b>Body:</b>
-  <%= @problem.body %>
-</p>
-
-<p>
-  <b>Input:</b>
-  <%= @problem.input %>
-</p>
-
-<p>
-  <b>Output:</b>
-  <%= @problem.output %>
+  <span id="problem_output">Output:</span>
+  <div><%= @problem.output %></div>
 </p>
 
 

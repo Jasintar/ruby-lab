@@ -1,3 +1,16 @@
 // Place all the styles related to the Problem controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#problem_header {
+  font-size: 16pt;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+#problem_standing, #problem_input, #problem_output {
+  font-size: 12pt;
+  font-weight: bold;
+}
+
