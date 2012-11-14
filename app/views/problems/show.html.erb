@@ -19,6 +19,16 @@
   <div><%= @problem.output %></div>
 </p>
 
+<div id="problem_state">
+  [<%= @problem.human_state_name %>]
+</div>
 
+<%=
+  if @problem.prepared?
+    link_to 'Unroll', unroll_problem_path(@problem)
+  else
+    link_to 'Make done', done_problem_path(@problem)
+  end
+%> |
 <%= link_to 'Edit', edit_problem_path(@problem) %> |
 <%= link_to 'Back', problems_path %>

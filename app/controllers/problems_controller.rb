@@ -69,6 +69,40 @@ class ProblemsController < ApplicationController
     end
   end
 
+  # PUT /problem/done
+  def done
+    @problem = Problem.find(params[:id])
+    @problem.done!
+
+    respond_to do |format|
+      if @problem.save
+        format.html { redirect_to @problem, notice: 'Problem was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "show" }
+        format.json { render json: @problem.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+  # PUT /problem/unroll
+  def unroll
+    @problem = Problem.find(params[:id])
+    @problem.unroll!
+
+    respond_to do |format|
+      if @problem.save
+        format.html { redirect_to @problem, notice: 'Problem was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "show" }
+        format.json { render json: @problem.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
   # DELETE /problems/1
   # DELETE /problems/1.json
   def destroy

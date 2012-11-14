@@ -1,12 +1,15 @@
 Lab3::Application.routes.draw do
-  resources :problems
+  resources :problems do
+    member do
+      get 'unroll'
+      get 'done'
+    end
+  end
+
 
   get "problem/create"
-
   get "problem/read"
-
   get "problem/update"
-
   get "problem/delete"
 
   root :to => "home#index"
