@@ -1,4 +1,16 @@
 Lab3::Application.routes.draw do
+  resources :problems
+
+  get "problem/create"
+
+  get "problem/read"
+
+  get "problem/update"
+
+  get "problem/delete"
+
+  root :to => "home#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
