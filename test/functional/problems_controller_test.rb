@@ -48,5 +48,23 @@ class ProblemsControllerTest < ActionController::TestCase
     assert_redirected_to problems_path
   end
 
+  test "should done problem" do
+    get :done, id: @problem
+    assert_redirected_to problem_path(assigns(:problem))
+
+    get :unroll, id: @problem
+    assert_redirected_to problem_path(assigns(:problem))
+  end
+
+  test "should done problem fail" do
+    get :done, id: @problem
+    assert_redirected_to problem_path(assigns(:problem))
+
+    get :done, id: @problem
+    assert_response :success
+
+    get :unroll, id: @problem
+    assert_redirected_to problem_path(assigns(:problem))
+  end
 
 end

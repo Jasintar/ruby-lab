@@ -72,10 +72,17 @@ class ProblemsController < ApplicationController
   # PUT /problem/done
   def done
     @problem = Problem.find(params[:id])
-    @problem.done!
+
+    # Похоже на то, что это можно сделать покороче, не правда-ли?
+    failed = true
+
+    if @problem.can_done?
+      @problem.done!
+      failed = false
+    end
 
     respond_to do |format|
-      if @problem.save
+      if !failed and @problem.save
         format.html { redirect_to @problem, notice: 'Problem was successfully updated.' }
         format.json { head :no_content }
       else
@@ -89,10 +96,15 @@ class ProblemsController < ApplicationController
   # PUT /problem/unroll
   def unroll
     @problem = Problem.find(params[:id])
-    @problem.unroll!
+
+    failed = true
+    if @problem.can_unroll?
+      @problem.unroll!
+      failed = false
+    end
 
     respond_to do |format|
-      if @problem.save
+      if !failed and @problem.save
         format.html { redirect_to @problem, notice: 'Problem was successfully updated.' }
         format.json { head :no_content }
       else
