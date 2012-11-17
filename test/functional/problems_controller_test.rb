@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ProblemsControllerTest < ActionController::TestCase
   setup do
+    @controller = ProblemsController.new
     @problem = problems(:one)
   end
 
@@ -46,4 +47,6 @@ class ProblemsControllerTest < ActionController::TestCase
 
     assert_redirected_to problems_path
   end
+
+
 end

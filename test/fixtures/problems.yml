@@ -1,15 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  prefix: MyString
+  prefix: A
   title: MyString
   body: MyText
   input: MyText
   output: MyText
+  state: unprepared
 
 two:
-  prefix: MyString
+  prefix: B
   title: MyString
   body: MyText
   input: MyText
   output: MyText
+  state: unprepared
