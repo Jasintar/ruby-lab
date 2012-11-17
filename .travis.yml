@@ -1,5 +1,6 @@
 language: ruby
-services: sqlite3
+before_script:
+  - rake db:migrate
 rvm:
   - "1.9.2"
   - "1.9.3"
