@@ -24,4 +24,5 @@ gem 'jquery-rails'
 gem 'state_machine'
 
 gem 'simplecov', :require => false, :group => :test
+gem "factory_girl_rails"
 

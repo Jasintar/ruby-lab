@@ -49,22 +49,31 @@ class ProblemsControllerTest < ActionController::TestCase
   end
 
   test "should done problem" do
-    get :done, id: @problem
+    problem = FactoryGirl.build(:unprepared_problem)
+    problem.save
+    get :done, id: problem.id
     assert_redirected_to problem_path(assigns(:problem))
+  end
 
-    get :unroll, id: @problem
+  test "should unroll problem" do
+    problem = FactoryGirl.build(:prepared_problem)
+    problem.save
+    get :unroll, id: problem.id
     assert_redirected_to problem_path(assigns(:problem))
   end
 
   test "should done problem fail" do
-    get :done, id: @problem
-    assert_redirected_to problem_path(assigns(:problem))
-
-    get :done, id: @problem
+    problem = FactoryGirl.build(:prepared_problem)
+    problem.save
+    get :done, id: problem.id
     assert_response :success
+  end
 
-    get :unroll, id: @problem
-    assert_redirected_to problem_path(assigns(:problem))
+  test "should unroll problem fail" do
+    problem = FactoryGirl.build(:unprepared_problem)
+    problem.save
+    get :unroll, id: problem.id
+    assert_response :success
   end
 
 end
